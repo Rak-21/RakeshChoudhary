@@ -259,7 +259,14 @@ export default function Recognition() {
                                             </div>
                                         </div>
                                         <div className="h-1/2 px-8 pt-6 pb-6 flex flex-col justify-start overflow-y-auto custom-scrollbar">
-                                            <h4 className="text-accent font-bold text-lg font-heading mb-2 text-center">{recognitions[currentPage].title}</h4>
+                                            {recognitions[currentPage].link ? (
+                                                <a href={recognitions[currentPage].link} target="_blank" rel="noopener noreferrer" className="text-accent font-bold text-lg font-heading mb-2 text-center hover:underline inline-flex items-center justify-center gap-1 mx-auto w-full">
+                                                    {recognitions[currentPage].title}
+                                                    <ArrowUpRight className="w-4 h-4 shrink-0" />
+                                                </a>
+                                            ) : (
+                                                <h4 className="text-accent font-bold text-lg font-heading mb-2 text-center">{recognitions[currentPage].title}</h4>
+                                            )}
                                             <div className="flex-1 flex flex-col justify-center mb-4">
                                                 <p className="text-textMuted text-sm leading-relaxed text-center">{recognitions[currentPage].caption || "Recognized for driving breakthrough digital initiatives and operational excellence."}</p>
                                             </div>
@@ -296,7 +303,14 @@ export default function Recognition() {
                                                 </div>
                                             </div>
                                             <div className="h-1/2 px-8 pt-6 pb-6 flex flex-col justify-start overflow-y-auto custom-scrollbar">
-                                                <h4 className="text-accent font-bold text-lg font-heading mb-2 text-center">{recognitions[currentPage + 1].title}</h4>
+                                                {recognitions[currentPage + 1].link ? (
+                                                    <a href={recognitions[currentPage + 1].link} target="_blank" rel="noopener noreferrer" className="text-accent font-bold text-lg font-heading mb-2 text-center hover:underline inline-flex items-center justify-center gap-1 mx-auto w-full">
+                                                        {recognitions[currentPage + 1].title}
+                                                        <ArrowUpRight className="w-4 h-4 shrink-0" />
+                                                    </a>
+                                                ) : (
+                                                    <h4 className="text-accent font-bold text-lg font-heading mb-2 text-center">{recognitions[currentPage + 1].title}</h4>
+                                                )}
                                                 <div className="flex-1 flex flex-col justify-center mb-4">
                                                     <p className="text-textMuted text-sm leading-relaxed text-center">{recognitions[currentPage + 1].caption || "Recognized for driving breakthrough digital initiatives and operational excellence."}</p>
                                                 </div>

@@ -69,7 +69,8 @@ export default function Dashboard() {
         title: '',
         caption: '',
         date: new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' }),
-        image: ''
+        image: '',
+        link: ''
     });
 
     // Quiz Editor State
@@ -289,7 +290,8 @@ export default function Dashboard() {
             title: '',
             caption: '',
             date: new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' }),
-            image: ''
+            image: '',
+            link: ''
         });
         loadData();
     };
@@ -625,7 +627,7 @@ export default function Dashboard() {
                         {activeTab === 'recognitions' && (
                             <button
                                 onClick={() => {
-                                    setNewRecognition({ sequence: recognitions.length + 1, title: '', caption: '', date: new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' }), image: '' });
+                                    setNewRecognition({ sequence: recognitions.length + 1, title: '', caption: '', date: new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' }), image: '', link: '' });
                                     setIsAddingRecognition(true);
                                 }}
                                 className="bg-accent text-white px-4 py-2 rounded-lg font-bold flex items-center gap-2 hover:shadow-[0_0_15px_var(--accent-glow)] transition-shadow"
@@ -1388,6 +1390,17 @@ export default function Dashboard() {
                                         rows="2"
                                         className="w-full bg-background border border-borderBase rounded-xl px-4 py-3 text-textMain outline-none transition-colors focus:border-accent resize-none text-sm"
                                         required
+                                    />
+                                </div>
+
+                                <div>
+                                    <label className="text-xs font-bold text-textMuted block mb-1">Recognition Link (Optional)</label>
+                                    <input
+                                        type="url"
+                                        placeholder="e.g. https://example.com/award"
+                                        value={newRecognition.link || ''}
+                                        onChange={e => setNewRecognition({ ...newRecognition, link: e.target.value })}
+                                        className="w-full bg-background border border-borderBase rounded-xl px-4 py-3 text-textMain outline-none transition-colors focus:border-accent"
                                     />
                                 </div>
 
